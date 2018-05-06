@@ -26,7 +26,10 @@ import { TopicDetailPage } from '../pages/topic-detail/topic-detail';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      backButtonText: '返回',
+      tabsHideOnSubPages: true
+    }),
     HttpClientModule
   ],
   bootstrap: [IonicApp],

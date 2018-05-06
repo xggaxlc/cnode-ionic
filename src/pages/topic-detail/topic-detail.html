@@ -6,5 +6,6 @@
 <ion-content padding>
   <network-detect [request]="request" (onSuccess)="onSuccess($event)" (onError)="onError($event)">
     <h1>{{ data.title }}</h1>
+    <div class="markdown-body" [innerHTML]="data.content"></div>
   </network-detect>
 </ion-content>
