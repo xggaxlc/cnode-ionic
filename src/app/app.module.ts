@@ -1,40 +1,49 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+import { Api } from '../providers';
+import { NetworkDetect, Loading, TopicListItem } from '../components';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { TabsPage } from '../pages/tabs/tabs';
+import { TopicListPage } from '../pages/topic-list/topic-list';
+import { TopicDetailPage } from '../pages/topic-detail/topic-detail';
+
 @NgModule({
   declarations: [
+    NetworkDetect,
+    Loading,
+    TopicListItem,
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    TabsPage,
+    TopicListPage,
+    TopicDetailPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    NetworkDetect,
+    Loading,
+    TopicListItem,
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    TabsPage,
+    TopicListPage,
+    TopicDetailPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Api
   ]
 })
 export class AppModule {}

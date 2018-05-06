@@ -1,0 +1,7 @@
+<div class="wrapper">
+  <div class="info-wrapper" *ngIf="loading || failed">
+    <loading *ngIf="loading"></loading>
+    <div *ngIf="failed" (click)="doRequest()" class="box-failed">加载失败</div>
+  </div>
+  <ng-content *ngIf="succed"></ng-content>
+</div>
